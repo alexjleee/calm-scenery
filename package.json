@@ -1,6 +1,9 @@
 {
-  "name": "my-todo",
+  "name": "calm-scenery",
+  "author": "Alex J. Lee",
+  "description": "Enjoy the calm scenery, animated SVG illustration",
   "version": "0.1.0",
+  "license": "ISC",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
