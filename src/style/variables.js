@@ -1,0 +1,18 @@
+export const colors = {
+  white: '#FFFFFF',
+  black: '#212121',
+  bg_day: '#1d4f27',
+  bg_night: '#19305e',
+  sky_day: '#f2b7a0',
+  sky_night: '#7ca7e5',
+  sun_day: '#f15a24',
+  moon_night: '#f7f7c6',
+  cloud_day: '#ea8068',
+  cloud_night: '#5b8dc9',
+  sand1_day: '#f7931e',
+  sand1_night: '#5e5ebc',
+  sand2_day: '#fbb03b',
+  sand2_night: '#7575c6',
+  arch_day: '#2b6037',
+  arch_night: '#253d75',
+};
