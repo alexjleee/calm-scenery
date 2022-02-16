@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import { colors } from './style/variables';
+import { ReactComponent as GithubIcon } from './assets/images/icons/github.svg';
 import Button from './components/Button';
 import Illust from './components/Illust';
 import ThemeToggle from './components/ThemeToggle';
@@ -49,6 +50,22 @@ const ButtonContainer = styled.div`
   align-items: center;
 `;
 
+const GithubLink = styled.a`
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  opacity: 0.5;
+  transform: scale(0.9);
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
 function App() {
   const [theme, setTheme] = useState('day');
   const imageRef = useRef();
@@ -76,6 +93,10 @@ function App() {
           </ButtonContainer>
         </InnerContainer>
       </Container>
+      <GithubLink href='https://github.com/alexjleee/calm-scenery'>
+        <GithubIcon width='1.5rem' height='1.5rem' fill={colors.white} />
+        <span>alexjleee</span>
+      </GithubLink>
     </AppContainer>
   );
 }
