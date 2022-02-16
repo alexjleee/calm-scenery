@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import { colors } from './style/variables';
 import Button from './components/Button';
 import Illust from './components/Illust';
 import ThemeToggle from './components/ThemeToggle';
+import exportElementAsPNG from './utils/downloadImage';
 
 const AppContainer = styled.div`
   transition: all 0.5s ease-in-out;
@@ -20,7 +21,7 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const IllustContainer = styled.div`
+const InnerContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 0;
@@ -28,6 +29,12 @@ const IllustContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
   width: 100%;
   aspect-ratio: 3/4;
+`;
+
+const IllustContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 `;
 
 const ButtonContainer = styled.div`
@@ -44,21 +51,30 @@ const ButtonContainer = styled.div`
 
 function App() {
   const [theme, setTheme] = useState('day');
+  const imageRef = useRef();
   return (
     <AppContainer theme={theme}>
       <Container>
-        <IllustContainer>
-          <Illust theme={theme} />
+        <InnerContainer>
+          <IllustContainer ref={imageRef}>
+            <Illust theme={theme} />
+          </IllustContainer>
           <ButtonContainer>
             <ThemeToggle
               color={colors.white}
               theme={{ themeOption: theme, handleTheme: setTheme }}
             />
-            <Button type='transparent' color={colors.white}>
+            <Button
+              type='transparent'
+              color={colors.white}
+              handleOnClick={() =>
+                exportElementAsPNG(imageRef.current, `calm-scenery-${theme}`)
+              }
+            >
               Download
             </Button>
           </ButtonContainer>
-        </IllustContainer>
+        </InnerContainer>
       </Container>
     </AppContainer>
   );

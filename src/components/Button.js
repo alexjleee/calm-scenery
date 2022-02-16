@@ -21,7 +21,9 @@ const TransparentButton = styled(DefaultButton)`
 
 const Button = (props) => {
   return (
-    <TransparentButton color={props.color}>{props.children}</TransparentButton>
+    <TransparentButton color={props.color} onClick={props.handleOnClick}>
+      {props.children}
+    </TransparentButton>
   );
 };
 
